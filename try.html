@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="icon" href="#">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- SEARCH BAR LINKS START -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+    <!-- SEARCH BAR LINKS END -->
+
+    <style type="text/css">
+        * {
+            font-family: Century Gothic Bold;
+            /* font-size: 15px; */
+        }
+
+        .banner {
+            /* width: 100%; */
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+        }
+
+        #slideImg {
+            width: 100%;
+            height: 100%;
+            animation: zoom 3s linear infinite;
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1.3);
+            }
+
+            15% {
+                transform: scale(1);
+            }
+
+            85% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.3);
+            }
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            position: absolute;
+            top: 0;
+        }
+
+        .content {
+            width: 60%;
+            margin: 160px auto 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content h1 {
+            font-size: 60px;
+        }
+
+        .content h3 {
+            width: 80%;
+            margin: 20px auto 40px;
+            font-weight: 100;
+            line-height: 20px;
+        }
+
+
+        /* navbar height */
+
+        .navbar-light .navbar-brand,
+        .navbar-light a.btn {
+            height: 75px;
+        }
+
+
+
+        /* SEARCH BAR CSS START */
+
+        .country-flag-img {
+      margin-right: 10px;
+      width: 24px;
+      height: 16px;
+      background-size: contain;
+    }
+
+    /* Mega dropdown styles */
+    .mega-dropdown {
+      position: static !important;
+    }
+
+    .mega-dropdown-menu {
+      padding: 20px;
+      width: 100%;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .mega-dropdown-menu .dropdown-item {
+      display: inline-block;
+      width: 150px;
+      padding: 5px;
+     
+    }
+
+    .mega-dropdown-menu .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+
+  
+        /* SEARCH BAR CSS END */
+
+        .col-lg-6 {
+            /* Adjusted box shadow here */
+            -webkit-box-shadow: -1px -1px 59px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 59px 0px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 59px 0px rgba(0,0,0,0.75);
+        }
+    </style>
+
+</head>
+
+<body onload="slider()">
+
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="IMAGES\LOGO.png" style="max-height:100px;">
+            
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!--LOGO-->
+
+    <div style="position:relative;width:100%;">
+        <div id="help" style="
+           position:relative;
+           z-index:1;
+           height:100%;
+           min-width: 1000px;
+           max-width: 1500px;
+           margin: 0 auto;
+        ">
+
+            <div class="banner">
+                <div class="slider">
+                    <img src="#" alt="#" id="slideImg">
+                </div>
+                <div class="overlay">
+                    <div class="content">
+                        <!-- <h1><span style="color: green;">SSVG</span> Printers</h1> -->
+                        <h1><span style="color: #D97226;">Choose and apply</span></h1>
+                        <h3>where you want to study in any university</h3>
+
+
+                        <!-- SEARCH BAR START -->
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+
+                              <div class="col-lg-9">
+                                <div class="input-group mb-3">
+                                  <div class="input-group-prepend mega-dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                      aria-haspopup="true" aria-expanded="false">
+                                      <span class="flag-icon flag-icon-us"></span> United States
+                                    </button>
+                                    <div class="dropdown-menu mega-dropdown-menu">
+                                      <!-- Mega dropdown content -->
+                                      <div class="row">
+                                        <div class="col-lg-4">
+                                          <button class="dropdown-item" type="button" data-country-code="US">
+                                            <span class="flag-icon flag-icon-us"></span> United States
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="AU">
+                                            <span class="flag-icon flag-icon-au"></span> Australia
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="CA">
+                                            <span class="flag-icon flag-icon-ca"></span> Canada
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="GB">
+                                            <span class="flag-icon flag-icon-gb"></span> United Kingdom
+                                          </button>
+                                          
+                                        </div>
+                                        <div class="col-lg-4">
+                                          <button class="dropdown-item" type="button" data-country-code="CH">
+                                            <span class="flag-icon flag-icon-ch"></span> Switzerland
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="NL">
+                                            <span class="flag-icon flag-icon-nl"></span> Netherlands
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="FR">
+                                            <span class="flag-icon flag-icon-fr"></span> France
+                                          </button>
+                                          <button class="dropdown-item" type="button" data-country-code="IE">
+                                            <span class="flag-icon flag-icon-ie"></span> Ireland
+                                          </button>
+                                          
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <button class="dropdown-item" type="button" data-country-code="IT">
+                                                <span class="flag-icon flag-icon-it"></span> Italy
+                                              </button>
+                                              <button class="dropdown-item" type="button" data-country-code="ES">
+                                                <span class="flag-icon flag-icon-es"></span> Spain
+                                              </button>
+                                              <button class="dropdown-item" type="button" data-country-code="DE">
+                                                <span class="flag-icon flag-icon-de"></span> Germany
+                                              </button>
+                                              <button class="dropdown-item" type="button" data-country-code="NZ">
+                                                <span class="flag-icon flag-icon-nz"></span> New Zealand
+                                              </button>
+                                          </div>
+                                        <!-- Add more columns and countries as needed -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <input type="text" class="form-control" id="universitySearchInput" placeholder="Search for a university">
+                                  <!-- Removed the University search button here -->
+                                  <button type="button" class="btn btn-secondary" id="searchButton">
+                                    <i class="bi bi-search"></i> Search
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>                        
+
+                        <!-- SEARCH BAR END -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- BANNER SCRIPT START -->
+        <script>
+            var slideImg = document.getElementById("slideImg");
+
+            var images = new Array(
+                "img/carousel-1.jpg",
+                "img/carousel-2.jpg",
+                "img/cat-3.jpg",
+                "img/cat-4.jpg",
+                "img/cat-1.jpg"
+            );
+
+            var len = images.length;
+            var i = 0;
+
+            function slider() {
+                if (i > len - 1) {
+                    i = 0;
+                }
+                slideImg.src = images[i];
+                i++;
+                setTimeout('slider()', 3000)
+            }
+        </script>
+
+        <!-- BANNER SCRIPT END -->
+
+        <!-- SEARCH BAR SCRIPT START -->
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const universitySearchInput = document.getElementById("universitySearchInput");
+            const universityDropdown = document.getElementById("universityDropdown");
+      
+            // Sample universities list (replace this with your own data)
+            const universities = [
+              "University of ABC",
+              "XYZ University",
+              "University of XYZ",
+              "ABC University",
+              "Some Other University",
+            ];
+      
+            // Function to update the country flag on the selected country button
+            function updateSelectedCountryFlag(countryCode) {
+              const countryButton = document.querySelector(".input-group-prepend .dropdown-toggle");
+              const flagIcon = document.createElement("span");
+              flagIcon.classList.add("flag-icon", `flag-icon-${countryCode.toLowerCase()}`);
+              countryButton.innerHTML = '';
+              countryButton.appendChild(flagIcon);
+              countryButton.innerHTML += ` ${countryButton.getAttribute("data-country-name")}`;
+            }
+      
+            // Handle country selection
+            const countryButtons = document.querySelectorAll(".dropdown-item[data-country-code]");
+            countryButtons.forEach((button) => {
+              button.addEventListener("click", function () {
+                const countryCode = button.getAttribute("data-country-code");
+                const countryName = button.textContent.trim();
+                button.closest(".input-group-prepend").querySelector(".dropdown-toggle").setAttribute("data-country-name", countryName);
+                updateSelectedCountryFlag(countryCode);
+              });
+            });
+      
+            universitySearchInput.addEventListener("input", function (event) {
+              const query = event.target.value.trim().toLowerCase();
+              const filteredUniversities = universities.filter((university) =>
+                university.toLowerCase().startsWith(query)
+              );
+      
+              universityDropdown.innerHTML = "";
+              filteredUniversities.forEach((university) => {
+                const link = document.createElement("a");
+                link.classList.add("dropdown-item");
+                link.href = "#";
+                link.textContent = university;
+                universityDropdown.appendChild(link);
+              });
+            });
+      
+            // You can handle the search button click event here.
+            // For this example, I'll just log the selected country and university.
+            document.getElementById("searchButton").addEventListener("click", function () {
+              const selectedCountry = document.querySelector(".input-group-prepend .dropdown-toggle").textContent.trim();
+              console.log("Selected Country:", selectedCountry);
+      
+              const selectedUniversity = document.querySelector(".input-group-append .dropdown-toggle").textContent.trim();
+              console.log("Selected University:", selectedUniversity);
+            });
+          });
+        </script>
+
+
+        <!-- SEARCH BAR SCRIPT END -->
+
+    </div>
+
+</div>
+
+</div>

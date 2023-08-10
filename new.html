@@ -1,0 +1,306 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Bar With Drop-down Menu HTML/CSS</title>
+    <!-- Google Fonts CDN Link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Line Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #333333;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.search-bar {
+  display: flex;
+  position: relative;
+  width: 870px;
+  height: 48px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.search-category {
+  position: relative;
+  padding: 0 20px;
+  background-color: #4c4c4c;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-category a {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.search-category a i {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.search-category:hover a i {
+  transform: rotate(180deg);
+}
+
+.category-menu {
+  width: 240px;
+  padding: 20px;
+  background-color: #262626;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.38s;
+  z-index: 11;
+}
+
+.category-menu .subject {
+  margin: 4px 0;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.category-menu .menu-item {
+  position: relative;
+  padding: 6px 0 6px 36px;
+  color: #999999;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: capitalize;
+  transition: all 0.13s;
+}
+
+.category-menu .menu-item:hover {
+  color: #fbbc05;
+}
+
+.search-category:hover .category-menu {
+  top: calc(100% + 4px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.input-search {
+  width: 100%;
+  flex: 1;
+}
+
+.input-search input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  color: #ffffff;
+  background-color: #333333;
+  font-size: 14px;
+  border-radius: 0 4px 4px 0;
+}
+
+.search-btn {
+  width: 58px;
+  height: 100%;
+  color: #ffffff;
+  background-color: #2079a4;
+  font-size: 16px;
+  border-radius: 0 4px 4px 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.search-btn i {
+  font-size: 24px;
+}
+
+.search-menu {
+  display: none;
+  width: 100%;
+  padding: 20px 30px;
+  color: #999999;
+  background-color: #262626;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+}
+
+.search-related a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #999999;
+  font-size: 14px;
+  text-decoration: none;
+  line-height: 32px;
+  transition: all 0.13s;
+}
+
+.search-related a:hover {
+  color: #ffffff;
+}
+
+.input-search input:focus + .search-menu {
+  display: block;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="search-bar">
+        <div class="search-category">
+          <a href="#">
+            <span>all design</span>
+            <i class="las la-angle-down"></i>
+          </a>
+          <div class="category-menu">
+            <span class="subject">search items</span>
+            <a href="#" class="menu-item">all design</a>
+            <a href="#" class="menu-item">templates</a>
+            <a href="#" class="menu-item">PNG images</a>
+            <a href="#" class="menu-item">backgrounds</a>
+            <a href="#" class="menu-item">illustration</a>
+            <a href="#" class="menu-item">decors & 3D model</a>
+            <a href="#" class="menu-item">E-commerce</a>
+            <a href="#" class="menu-item">photo</a>
+            <a href="#" class="menu-item">UI & UX</a>
+            <a href="#" class="menu-item">web templates</a>
+            <a href="#" class="menu-item">wordpress</a>
+            <a href="#" class="menu-item">fonts</a>
+          </div>
+        </div>
+        <label class="input-search">
+          <input type="text" placeholder="Search Your Item" />
+          <div class="search-menu">
+            <div class="search-related">
+              <a href="#">
+                <span>Fight the Covid</span>
+                <span>12277 result</span>
+              </a>
+              <a href="#">
+                <span>Flyer</span>
+                <span>15614 result</span>
+              </a>
+              <a href="#">
+                <span>business card</span>
+                <span>1846 result</span>
+              </a>
+              <a href="#">
+                <span>logo</span>
+                <span>46395 result</span>
+              </a>
+              <a href="#">
+                <span>Eid Festival</span>
+                <span>329355 result</span>
+              </a>
+              <a href="#">
+                <span>invitation card</span>
+                <span>141401 result</span>
+              </a>
+              <a href="#">
+                <span>Mockup</span>
+                <span>16033 result</span>
+              </a>
+              <a href="#">
+                <span>broucher</span>
+                <span>6815 result</span>
+              </a>
+              <a href="index.html">
+                <span>PNG images</span>
+                <span>23786 result</span>
+              </a>
+            </div>
+          </div>
+        </label>
+        <a href="#" class="search-btn">
+          <i class="las la-search"></i>
+        </a>
+      </div>
+
+
+      <div class="container">
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-6">
+            <div class="input-group mb-3">
+             
+              <div class="input-group-append">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Search Type</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" data-search-type="country">Country</a>
+                  <a class="dropdown-item" href="#" data-search-type="university">University</a>
+                </div>
+              </div>
+              <input type="text" class="form-control" id="searchInput" placeholder="Search for a country or university">
+            </div>
+    
+            <div id="searchResults"></div>
+          </div>
+        </div>
+      </div>
+    
+    </header>
+
+    <!-- dropdown script -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
